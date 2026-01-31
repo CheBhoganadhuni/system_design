@@ -22,11 +22,14 @@ def login():
     if not err:
         return token, 200
     else:
-        return err, 401
+        return err
 
 @server.route("/upload", methods=["POST"])
 def upload():
     access, err = validate.token(request)
+
+    if err:
+        return err
 
     access = json.loads(access)
 
@@ -36,8 +39,8 @@ def upload():
         
         for _, f in request.files.items():
             err = util.upload(f, fs, channel, access)
-            if err:
-                return err, 500
+            if err[0]:
+                return err
         
         return "File uploaded successfully", 200
     else:
