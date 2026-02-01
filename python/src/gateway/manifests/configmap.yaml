@@ -5,5 +5,6 @@ metadata:
 data:
   AUTH_SVC_ADDRESS: "auth:5000"
   MONGO_URI: "mongodb://mongo:27017/videos"
+  MONGO_MP3S_URI: "mongodb://mongo:27017/mp3s"
   RABBITMQ_HOST: "rabbitmq"
   RABBITMQ_PORT: "5672"
