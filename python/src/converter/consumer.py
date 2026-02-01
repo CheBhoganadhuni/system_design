@@ -19,7 +19,8 @@ def main():
     def callback(ch, method, properties, body):
         err = to_mp3.start(body, fs_videos, fs_mp3s, ch)
         if err:
-            ch.basic_nack(delivery_tag=method.delivery_tag)
+            ch.basic_nack(delivery_tag=method.delivery_tag, requeue=False)
+            print(f"Failed to process message: {err}")
         else:
             ch.basic_ack(delivery_tag=method.delivery_tag) 
 
