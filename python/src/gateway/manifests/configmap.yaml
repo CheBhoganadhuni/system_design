@@ -4,6 +4,6 @@ metadata:
   name: gateway-configmap
 data:
   AUTH_SVC_ADDRESS: "auth:5000"
-  MONGO_URI: "mongodb://host.minikube.internal:27017/videos"
+  MONGO_URI: "mongodb://mongo:27017/videos"
   RABBITMQ_HOST: "rabbitmq"
   RABBITMQ_PORT: "5672"
